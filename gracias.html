@@ -24,6 +24,7 @@
             height: 100vh;
             width: 100vw;
             padding: 20px;
+            position: relative;
         }
 
         h1 {
@@ -31,9 +32,15 @@
             margin-bottom: 20px;
         }
 
+        h2 {
+            font-size: 2em;
+            font-weight: normal;
+        }
+
+        /* Capa de opacidad para cubrir toda la pantalla */
         body::before {
             content: "";
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
@@ -45,7 +52,6 @@
 </head>
 <body>
     <h1>¡Gracias!</h1>
-  <h2>Me pondré en contacto contigo lo antes posible.</h2>
+    <h2>Me pondré en contacto contigo lo antes posible.</h2>
 </body>
 </html>
-
