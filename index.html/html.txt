@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maikel Digital</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Contenedor principal -->
+    <section class="landing">
+        <!-- Imagen de fondo -->
+        <div class="background-image"></div>
+
+        <!-- Contenido de la landing -->
+        <div class="content">
+            <h1>Maikel Digital</h1>
+            <h3>He ayudado a miles de profesionales y empresas a mejorar rendimientos y generar resultados con estrategias personalizadas.</h3>
+            <p class="cta">Cuéntame como puedo ayudarte</p>
+
+            <!-- Formulario de contacto -->
+            <form action="https://formsubmit.co/maikeldigitalinfo@gmail.com" method="POST">
+                <input type="email" name="email" placeholder="Pásame tu email para ponerme en contacto contigo" required>
+                <textarea name="project" placeholder="Cuéntame sobre tu proyecto y si tienes algo pensado" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>
