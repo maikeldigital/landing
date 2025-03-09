@@ -5,49 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maikel Digital</title>
     <style>
-        /* Reset de márgenes y paddings */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Estilo global del body */
         body {
             font-family: Arial, sans-serif;
-            height: 100%;
-            background-color: #000;
-        }
-
-        /* Sección principal */
-        .landing {
             position: relative;
-            height: 100vh;
+            color: #fff !important;
+            text-align: center;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            color: white;
+            height: 100vh;
+            width: 100vw;
+            padding: 20px;
         }
 
-        /* Imagen de fondo */
-        .background-image {
+        /* Agregamos una capa semi-transparente sobre el fondo */
+        body::before {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('https://via.placeholder.com/1920x1080') no-repeat center center;
-            background-size: cover;
-            opacity: 0.5; /* Opacidad para oscurecer la imagen de fondo */
-        }
-
-        /* Contenido sobre la imagen */
-        .content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 20px;
+            background: rgba(0, 0, 0, 0.5); /* Fondo negro con opacidad */
+            z-index: -1; /* Colocamos la capa detrás del contenido */
         }
 
         h1 {
@@ -55,101 +42,97 @@
             margin-bottom: 20px;
         }
 
-        h3 {
+        p {
             font-size: 1.5em;
             margin-bottom: 30px;
         }
 
         .cta {
-            font-size: 1.2em;
-            margin-bottom: 40px;
+            font-size: 1.5em;
+            margin-bottom: 20px;
         }
 
-        /* Estilo del formulario */
         form {
             display: flex;
             flex-direction: column;
             gap: 15px;
+            width: 100%;
             max-width: 600px;
-            margin: 0 auto;
         }
 
         input, textarea {
-            padding: 10px;
-            font-size: 1em;
-            border: none;
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
+            padding: 15px;
+            font-size: 1.2em;
+            border: 2px solid #fff;
+            border-radius: 15px;
             width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff !important;
+            transition: all 0.3s ease;
         }
 
-        input[type="email"] {
-            height: 40px;
+        input::placeholder, textarea::placeholder {
+            color: #ddd !important;
+            opacity: 0.7;
         }
 
-        textarea {
-            height: 100px;
-            resize: none;
+        /* Borde verde en el enfoque */
+        input:focus, textarea:focus {
+            border-color: #28a745; /* Borde verde cuando se hace foco */
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo más oscuro */
+        }
+
+        /* Desactivar el borde rojo de la validación del navegador */
+        input:invalid, textarea:invalid {
+            border-color: #fff; /* Mantener borde blanco */
+        }
+
+        input:valid, textarea:valid {
+            border-color: #28a745; /* Borde verde si es válido */
         }
 
         button {
-            padding: 10px;
-            font-size: 1.2em;
-            background-color: #f1c40f;
-            color: #333;
-            border: none;
-            border-radius: 5px;
+            padding: 15px;
+            font-size: 1.5em;
+            background-color: #0056b3;
+            color: #fff;
+            border: 2px solid #fff;
+            border-radius: 15px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: color 0.3s;
         }
 
         button:hover {
-            background-color: #e67e22;
+            color: #ccc; /* Cambia el color del texto a gris cuando el mouse pase sobre el botón */
         }
 
-        /* Hacer la imagen y el contenido responsive */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5em;
-            }
+        .cta, h1 {
+            color: #fff !important; /* Asegura que el texto de las llamadas a la acción sea más visible */
+        }
 
-            h3 {
-                font-size: 1.2em;
-            }
+        /* Desactivar la validación del navegador */
+        input:focus, textarea:focus {
+            outline: none; /* Elimina el contorno predeterminado */
+        }
 
-            .cta {
-                font-size: 1em;
-            }
-
-            button {
-                font-size: 1em;
-            }
+        /* Fondo con imagen */
+        body {
+            background: url('https://raw.githubusercontent.com/maikeldigital/landing/main/img_fondo.webp') no-repeat center center fixed;
+            background-size: cover;
         }
     </style>
 </head>
 <body>
+    <h1>Maikel Digital</h1>
+    <p>He ayudado a miles de profesionales y empresas a mejorar rendimientos y generar resultados con estrategias personalizadas.</p>
+    <p class="cta">Cuéntame cómo puedo ayudarte</p>
 
-    <!-- Contenedor principal -->
-    <section class="landing">
-        <!-- Imagen de fondo -->
-        <div class="background-image"></div>
-
-        <!-- Contenido de la landing -->
-        <div class="content">
-            <h1>Maikel Digital</h1>
-            <h3>He ayudado a miles de profesionales y empresas a mejorar rendimientos y generar resultados con estrategias personalizadas.</h3>
-            <p class="cta">Cuéntame como puedo ayudarte</p>
-
-            <!-- Formulario de contacto -->
-            <form action="https://formsubmit.co/maikeldigitalinfo@gmail.com" method="POST">
-                <input type="email" name="email" placeholder="Pásame tu email para ponerme en contacto contigo" required>
-                <textarea name="project" placeholder="Cuéntame sobre tu proyecto y si tienes algo pensado" required></textarea>
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
-    </section>
-
+    <form action="https://formsubmit.co/maikeldigitalinfo@gmail.com" method="POST">
+        <input type="email" name="email" placeholder="Pásame tu email para ponerme en contacto contigo" required>
+        <textarea name="project" placeholder="Cuéntame sobre tu proyecto" required></textarea>
+        <button type="submit">Enviar</button>
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none">
+    </form>
 </body>
 </html>
-
