@@ -140,6 +140,7 @@
         /* Habilitar el botón si todos los campos son válidos */
         input:valid + textarea:valid + button {
             opacity: 1;
+            cursor: pointer; /* Habilitar el botón si los campos son válidos */
         }
 
         input:invalid + textarea:invalid + button {
@@ -156,12 +157,9 @@
     <form action="https://formsubmit.co/maikeldigitalinfo@gmail.com" method="POST">
         <input type="email" name="email" placeholder="Pásame tu email para ponerme en contacto contigo" required>
         <textarea name="project" placeholder="Cuéntame sobre tu proyecto" required></textarea>
-        <button type="submit" disabled>Enviar</button>
+        <button type="submit">Enviar</button>
         <input type="hidden" name="_captcha" value="false">
         <input type="text" name="_honey" style="display:none">
     </form>
 </body>
 </html>
-
-
-
