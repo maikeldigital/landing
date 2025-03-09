@@ -71,6 +71,7 @@
             color: #fff;
         }
 
+        /* Botón desactivado por defecto */
         button {
             padding: 15px;
             font-size: 1.5em;
@@ -79,13 +80,22 @@
             border: 2px solid #fff;
             border-radius: 15px;
             cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.3s, color 0.3s, opacity 0.3s;
             opacity: 0.6;
+            pointer-events: none; /* Desactivado por defecto */
+        }
+
+        /* Botón activado cuando el formulario es válido */
+        form:valid button {
+            pointer-events: all;
+            opacity: 1;
+            background-color: #0056b3;
+            border-color: #0056b3;
         }
 
         button:hover {
             color: #fff;
-            background-color: #0056b3;
+            background-color: #004494;
         }
 
         .confirmation-message {
@@ -95,7 +105,7 @@
             margin-top: 20px;
         }
 
-        /* Corregido para cubrir bien la opacidad en móviles */
+        /* Capa de opacidad sobre toda la pantalla */
         body::before {
             content: "";
             position: fixed;
@@ -106,12 +116,6 @@
             background: rgba(0, 0, 0, 0.5);
             z-index: -1;
             pointer-events: none;
-        }
-
-        /* Activa el botón cuando los campos estén llenos */
-        form:valid button {
-            pointer-events: all;
-            opacity: 1;
         }
     </style>
 </head>
@@ -126,11 +130,11 @@
         <textarea name="project" placeholder="Cuéntame sobre tu proyecto" required></textarea>
         <button type="submit">Enviar</button>
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://maikeldigital.github.io/landing/gracias"> <!-- Cambia esta URL por la tuya -->
+        <input type="hidden" name="_next" value="https://maikeldigital.github.io/landing/gracias">
         <input type="text" name="_honey" style="display:none">
     </form>
 
-    <!-- Mensaje de confirmación (Solo si se usa redirección personalizada) -->
+    <!-- Mensaje de confirmación -->
     <div class="confirmation-message" id="confirmation-message">
         ¡Gracias! Me pondré en contacto contigo lo antes posible.
     </div>
